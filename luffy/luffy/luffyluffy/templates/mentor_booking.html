@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Mentors</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7fa;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .mentor-card {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mentor-info {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .mentor-info h3 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .mentor-info p {
+            margin: 5px 0;
+        }
+
+        .mentor-info .availability {
+            font-size: 14px;
+            color: #28a745;
+        }
+
+        .booking-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .booking-section label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .booking-section select,
+        .booking-section input[type="date"],
+        .booking-section input[type="time"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            width: 100%;
+        }
+
+        .mentor-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .mentor-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .mentor-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .mentor-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .message {
+            font-size: 16px;
+            color: #28a745;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Available Mentors</h2>
+
+        <div class="mentor-list">
+            <!-- Loop over mentors and display each mentor's info -->
+            {% for mentor in mentors %}
+            <form class="mentor-card" method="POST" >
+                {% csrf_token %}
+                <div class="mentor-info">
+                    <h3>{{ mentor.name }}</h3>
+                    <p><strong>Email:</strong> {{ mentor.Email }}</p>
+                    <p><strong>Phone:</strong> {{ mentor.phone }}</p>
+                    <p class="availability"><strong>Availability:</strong> {{ mentor.availablity }}</p>
+                </div>
+                <div class="booking-section">
+                    <!-- Include hidden field with mentor's ID or name -->
+                    <input type="hidden" name="mentor_id" value="{{ mentor.mid }}">
+                    <label for="date">Choose Date:</label>
+                    <input type="date" name="date" required>
+                    <label for="time">Choose Time:</label>
+                    <input type="time" name="time" required>
+                    <button class="mentor-btn" type="submit">Book Mentor</button>
+                </div>
+            </form>
+            {% endfor %}
+        </div>
+
+        <div id="responseMessage" class="message">
+            {% if message %}
+                <p>{{ message }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+
+</html>
