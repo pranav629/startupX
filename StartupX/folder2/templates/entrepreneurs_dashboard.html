@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrepreneur Dashboard</title>
+   
+    
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>🚀 Entrepreneur Dashboard</h1>
+        <p>Welcome to your startup growth journey!</p>
+
+        <div class="dashboard-grid">
+            <a href="profile.html" class="dashboard-section">
+                <h2>📌 Profile & Settings</h2>
+                <p>Manage your startup details, LinkedIn, and preferences.</p>
+            </a>
+
+            <a href="mentor-booking.html" class="dashboard-section">
+                <h2>👨‍🏫 Mentor Discovery & Booking</h2>
+                <p>Find and book mentorship sessions.</p>
+            </a>
+
+            <a href="chat.html" class="dashboard-section">
+                <h2>💬 Chat & Communication</h2>
+                <p>Chat with mentors and join video calls.</p>
+            </a>
+
+            <a href="learning.html" class="dashboard-section">
+                <h2>📚 Learning & Resources</h2>
+                <p>Access startup guides, case studies, and more.</p>
+            </a>
+
+            <a href="progress.html" class="dashboard-section">
+                <h2>📈 Progress & Feedback</h2>
+                <p>Track your startup's progress and rate mentors.</p>
+            </a>
+        </div>
+
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <script type="module" src="auth.js"></script>
+</body>
+</html>
+<style>
+    /* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: white; /* Set background to white */
+    padding: 20px;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    width: 450px;
+    padding: 30px;
+    background: linear-gradient(135deg, #007bff, #4facfe); /* Maintain blue gradient */
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+h1 {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+/* Dashboard Sections */
+.dashboard-grid {
+    display: grid;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.dashboard-section {
+    display: block;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.dashboard-section h2 {
+    font-size: 18px;
+}
+
+.dashboard-section p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Hover Animation */
+.dashboard-section:hover {
+    background: #ffd700;
+    color: #2a2a72;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Logout Button */
+.logout-btn {
+    margin-top: 20px;
+    width: 100%;
+    background: #ff4d4d;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: #cc0000;
+    transform: scale(1.05);
+}
+
+.dashboard-section {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-section:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+</style>
